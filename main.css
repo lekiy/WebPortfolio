@@ -1,5 +1,49 @@
 
 
 body{
-    background-color: green;
+    background-color: white;
+}
+
+#nav-bar{
+    background-color: gray;
+    border: 0px solid rgba(0,0,0,0);
+    width:100%;
+    height:40px;
+    padding:0px;
+    margin:0;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display:flex;
+    justify-content: flex-start;
+    list-style-type: none;
+}
+
+.nav-bar-item{
+    padding: 7px;
+    margin: 0px;
+    height:40px;
+    text-align:center;
+    background-color:seagreen;
+    text-decoration: none;
+}
+
+.nav-bar-item:hover{
+    background-color: yellowgreen; 
+}
+
+.nav-bar-text:hover{
+    color: white; 
+    text-decoration: none;
+}
+
+.nav-bar-text{
+    color:white; 
+    
+}
+
+#home-link{
+    flex-direction: column;
+    
+    align-self: flex-start;
 }
