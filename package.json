@@ -1,0 +1,24 @@
+{
+  "name": "webportfolio",
+  "version": "1.0.0",
+  "description": "My Portfolio Website",
+  "main": "main.js",
+  "dependencies": {
+    "bootstrap": "^4.1.0",
+    "node": "^9.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lekiy/WebPortfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lekiy/WebPortfolio/issues"
+  },
+  "homepage": "https://github.com/lekiy/WebPortfolio#readme"
+}
