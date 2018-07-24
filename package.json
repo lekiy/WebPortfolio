@@ -5,7 +5,9 @@
   "main": "main.js",
   "dependencies": {
     "bootstrap": "^4.1.0",
-    "node": "^9.11.0"
+    "node": "^9.11.0",
+    "react": "^16.3.2",
+    "webpack": "^4.6.0"
   },
   "devDependencies": {},
   "scripts": {
