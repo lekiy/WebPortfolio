@@ -31178,7 +31178,7 @@
 	                _react2.default.createElement(
 	                    "div",
 	                    null,
-	                    _react2.default.createElement("img", { src: "../src/images/kevin-profile.jpg", className: "ProfileImage DetailStyle" }),
+	                    _react2.default.createElement("img", { src: "src/images/kevin-profile.jpg", className: "ProfileImage DetailStyle" }),
 	                    _react2.default.createElement(
 	                        "h3",
 	                        null,
