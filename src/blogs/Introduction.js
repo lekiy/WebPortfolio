@@ -8,7 +8,7 @@ export default class Introduction extends Component {
             <div>
                 
                 <div>
-                <img src="../src/images/kevin-profile.jpg" className="ProfileImage DetailStyle" />
+                <img src="https://lekiy.github.io/WebPortfolio/src/images/kevin-profile.jpg" className="ProfileImage DetailStyle" />
                     <h3>Excelsior!</h3>
                     <p>
                         My name is Kevin Annen and this website 
