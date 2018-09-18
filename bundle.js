@@ -87,6 +87,10 @@
 
 	var _BlogStore2 = _interopRequireDefault(_BlogStore);
 
+	var _ContactMe = __webpack_require__(106);
+
+	var _ContactMe2 = _interopRequireDefault(_ContactMe);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -110,23 +114,25 @@
 	    }
 
 	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-	      selectedPost: "Introduction",
+	      selectedPost: "None",
 	      searchTerm: "Default",
-	      blogPosts: _BlogStore2.default
+	      blogPosts: _BlogStore2.default,
+	      pageRoute: "index"
 	    }, _this.handleButtonClick = function (title) {
 	      _this.setState({ selectedPost: title });
 	    }, _this.handleNewSearch = function (term) {
-	      _this.setState({ searchTerm: term });
+	      _this.setState({ selectedPost: "None",
+	        searchTerm: term });
 	    }, _this.getDisplayedPosts = function (searchTerm) {
 	      var returnObjectArray = _this.state.blogPosts.filter(function (post) {
-	        return post.title.includes(searchTerm);
+	        return post.keywords.includes(searchTerm);
 	      });
 
-	      returnObjectArray = _this.limitDisplayedPosts(returnObjectArray, 0, 5);
+	      returnObjectArray = _this.limitDisplayedPosts(returnObjectArray, 0, 10);
 
 	      if (searchTerm === "Default" || returnObjectArray === undefined || returnObjectArray.length == 0) {
-	        ///Getting the first five blogs in the list objects///
-	        returnObjectArray = _this.limitDisplayedPosts(_this.state.blogPosts, 0, 5);
+	        ///Getting the first amount of blogs in the list objects///
+	        returnObjectArray = _this.limitDisplayedPosts(_this.state.blogPosts, 0, 10);
 	      }
 
 	      return returnObjectArray;
@@ -141,38 +147,74 @@
 	      });
 
 	      return returnArray;
+	    }, _this.handleRouteChange = function (route) {
+	      _this.setState({ pageRoute: route });
 	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
 
 	  _createClass(App, [{
+	    key: 'getFocusedPost',
+	    value: function getFocusedPost() {
+	      var displayedPosts = this.getDisplayedPosts(this.state.searchTerm);
+	      var selectedPost = this.state.selectedPost;
+	      if (this.state.selectedPost === "None") {
+	        return displayedPosts.map(function (post) {
+	          return _react2.default.createElement(_ContentDisplay2.default, { post: post, key: post.title });
+	        });
+	      } else {
+	        return _react2.default.createElement(_ContentDisplay2.default, { post: this.state.blogPosts.find(function (post) {
+	            return post.title === selectedPost;
+	          }) });
+	      }
+	    }
+	  }, {
+	    key: 'getPageContent',
+	    value: function getPageContent() {
+
+	      switch (this.state.pageRoute) {
+	        case "index":
+	          var displayedPosts = this.getDisplayedPosts(this.state.searchTerm);
+
+	          var count = 0;
+	          return _react2.default.createElement(
+	            'div',
+	            { className: 'BlogSection' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'BlogColumn' },
+	              this.getFocusedPost()
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'SelectColumn' },
+	              _react2.default.createElement(_SelectMenu2.default, { onClickButton: this.handleButtonClick, posts: displayedPosts, onChangeString: this.handleNewSearch })
+	            )
+	          );
+	        case "contactMe":
+	          return _react2.default.createElement(_ContactMe2.default, null);
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-
-	      var displayedPosts = this.getDisplayedPosts(this.state.searchTerm);
-
-	      var selectedPost = this.state.selectedPost;
-	      var searchTerm = this.state.searchTerm;
-
-	      var count = 0;
 
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_Navbar2.default, null),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'BlogSection' },
-	          _react2.default.createElement(_ContentDisplay2.default, { post: this.state.blogPosts.find(function (post) {
-	              return post.title === selectedPost;
-	            }) }),
-	          _react2.default.createElement(_SelectMenu2.default, { onClickButton: this.handleButtonClick, posts: displayedPosts, onChangeString: this.handleNewSearch })
-	        )
+	        _react2.default.createElement(_Navbar2.default, { onRouteChange: this.handleRouteChange }),
+	        this.getPageContent()
 	      );
 	    }
 	  }]);
 
 	  return App;
 	}(_react.Component);
+
+	/* storing render code here from above
+	<ContentDisplay post={this.state.blogPosts.find((post) => {
+	              return post.title === selectedPost;
+	          })}/>
+	*/
 
 	_reactDom2.default.render(_react2.default.createElement(App, null), document.querySelector('.container'));
 
@@ -19705,6 +19747,8 @@
 	    _createClass(Navbar, [{
 	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+
 	            return _react2.default.createElement(
 	                'div',
 	                null,
@@ -19715,8 +19759,12 @@
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'Navbar-Button-Group' },
-	                        _react2.default.createElement(_NavButton2.default, { href: 'http://localhost:8080/', name: 'Home' }),
-	                        _react2.default.createElement(_NavButton2.default, { href: 'https://google.com', name: 'Contact' })
+	                        _react2.default.createElement(_NavButton2.default, { href: '', name: 'Home', onClick: function onClick() {
+	                                _this2.props.onRouteChange("index");
+	                            } }),
+	                        _react2.default.createElement(_NavButton2.default, { href: '', name: 'Contact', onClick: function onClick() {
+	                                _this2.props.onRouteChange("contactMe");
+	                            } })
 	                    ),
 	                    _react2.default.createElement('div', { className: 'Navbar-Filler' }),
 	                    _react2.default.createElement(
@@ -19766,9 +19814,22 @@
 	    _inherits(NavButton, _Component);
 
 	    function NavButton() {
+	        var _ref;
+
+	        var _temp, _this, _ret;
+
 	        _classCallCheck(this, NavButton);
 
-	        return _possibleConstructorReturn(this, (NavButton.__proto__ || Object.getPrototypeOf(NavButton)).apply(this, arguments));
+	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	            args[_key] = arguments[_key];
+	        }
+
+	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = NavButton.__proto__ || Object.getPrototypeOf(NavButton)).call.apply(_ref, [this].concat(args))), _this), _this.handleClick = function (event) {
+	            if (_this.props.onClick) {
+	                event.preventDefault();
+	                _this.props.onClick();
+	            }
+	        }, _temp), _possibleConstructorReturn(_this, _ret);
 	    }
 
 	    _createClass(NavButton, [{
@@ -19791,7 +19852,7 @@
 
 	            return _react2.default.createElement(
 	                "a",
-	                { href: props.href, className: classes },
+	                { href: props.href, className: classes, onClick: this.handleClick, target: "_blank" },
 	                props.name
 	            );
 	        }
@@ -31109,7 +31170,7 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-	                value: true
+	  value: true
 	});
 
 	var _react = __webpack_require__(2);
@@ -31120,19 +31181,41 @@
 
 	var _Introduction2 = _interopRequireDefault(_Introduction);
 
+	var _TheOrchardProject = __webpack_require__(101);
+
+	var _TheOrchardProject2 = _interopRequireDefault(_TheOrchardProject);
+
+	var _WebPortfolioProject = __webpack_require__(102);
+
+	var _WebPortfolioProject2 = _interopRequireDefault(_WebPortfolioProject);
+
+	var _LudumDare = __webpack_require__(103);
+
+	var _LudumDare2 = _interopRequireDefault(_LudumDare);
+
+	var _SurveyFormProject = __webpack_require__(104);
+
+	var _SurveyFormProject2 = _interopRequireDefault(_SurveyFormProject);
+
+	var _Shenanijam = __webpack_require__(105);
+
+	var _Shenanijam2 = _interopRequireDefault(_Shenanijam);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var blogs = [{ title: "Introduction",
-	                content: _react2.default.createElement(_Introduction2.default, null) }, { title: "blog2",
-	                content: "This is blog2" }, { title: "blog3",
-	                content: "This is blog3" }, { title: "blog4",
-	                content: "This is blog4" }, { title: "blog5",
-	                content: "This is blog5" }, { title: "blog6",
-	                content: "This is blog6" }, { title: "blog7",
-	                content: "This is blog7" }, { title: "blog8",
-	                content: "This is blog8" }, { title: "blog9",
-	                content: "This is blog9" }, { title: "blog10",
-	                content: "This is blog10" }];
+	  keywords: "default introduction greeting interests",
+	  content: _react2.default.createElement(_Introduction2.default, null) }, { title: "The Orchard Project",
+	  keywords: "the orchard project CSS web development HTML design flex box grid 2018 august september",
+	  content: _react2.default.createElement(_TheOrchardProject2.default, null) }, { title: "Portfolio Website Project",
+	  keywords: "portfolio website project CSS web development HTML javascript design react webpack npm",
+	  content: _react2.default.createElement(_WebPortfolioProject2.default, null) }, { title: "Running out of Space",
+	  keywords: "ludum dare 42 running out of space gamemakerstudio2 vector art video game programming isometric action rougelike",
+	  content: _react2.default.createElement(_LudumDare2.default, null) }, { title: "Project Survey Form",
+	  keywords: "freecodecamp project survay form css flexbox grid html web development design league of legends",
+	  content: _react2.default.createElement(_SurveyFormProject2.default, null) }, { title: "Slime Crafting",
+	  keywords: "shenanijam 2 game jam gamemaker studio aseprite pixel art video game programming top down action crafting",
+	  content: _react2.default.createElement(_Shenanijam2.default, null) }];
 
 	exports.default = blogs;
 
@@ -31175,29 +31258,109 @@
 	            return _react2.default.createElement(
 	                "div",
 	                null,
+	                _react2.default.createElement("img", { src: "../src/images/kevin-profile.jpg", className: "ProfileImage DetailStyle Left" }),
+	                _react2.default.createElement(
+	                    "h3",
+	                    null,
+	                    "Excelsior!"
+	                ),
+	                _react2.default.createElement(
+	                    "p",
+	                    null,
+	                    "My name is Kevin Annen and this website is a hub for my programming, design, and commentary about games I like to play."
+	                ),
+	                _react2.default.createElement(
+	                    "p",
+	                    null,
+	                    "I grew up in Lake In The Hills and now live in Woodstock. I started programming back in 2010 working on mods for minecraft, and have been occasonally dabbling in programming ever since. Some of my interests include: Game Development, Animal Resque, Martial Arts, Lego, and Tabletop Games."
+	                ),
+	                _react2.default.createElement(
+	                    "p",
+	                    null,
+	                    "At this time this website is still under construction, so please disreguard any bugs or missing content."
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Introduction;
+	}(_react.Component);
+
+	exports.default = Introduction;
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Introduction = function (_Component) {
+	    _inherits(Introduction, _Component);
+
+	    function Introduction() {
+	        _classCallCheck(this, Introduction);
+
+	        return _possibleConstructorReturn(this, (Introduction.__proto__ || Object.getPrototypeOf(Introduction)).apply(this, arguments));
+	    }
+
+	    _createClass(Introduction, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                { className: "Flex" },
+	                _react2.default.createElement("img", { src: "../src/images/orchard-page-new.png", className: "ProfileImage DetailStyle Left", alt: "Woodstock Country Orchard Home Page" }),
+	                _react2.default.createElement(
+	                    "h3",
+	                    null,
+	                    "The Orchard Project"
+	                ),
+	                _react2.default.createElement(
+	                    "p",
+	                    null,
+	                    "This project Is my first web development project that I got to do in service of another person. I'm even being paid for it which feels great for my self confididence in my web development abilities."
+	                ),
+	                _react2.default.createElement(
+	                    "p",
+	                    null,
+	                    "The project was to update a website for a local orchard to display the correct information for the current picking season. My client didn't have a whole lot of specifications on what they wanted me to do other then just correct the current hours, and schedule. So immedietly after I started the project, I made sure to get what they needed for there business out for display as soon as I could. As I didn't want to cause any customers confusion or miss anyone coming to the website for information. After that I went ahead and tried to improve the overall design of the website."
+	                ),
 	                _react2.default.createElement(
 	                    "div",
+	                    { className: "CaptionContainer Right" },
+	                    _react2.default.createElement("img", { src: "../src/images/orchard-page-old.png", className: "CaptionImage", alt: "Woodstock Country Orchard Home Page Old" }),
+	                    "This is a screenshot of the homepage before I started working on it. (The top image is afterwards)"
+	                ),
+	                _react2.default.createElement(
+	                    "p",
 	                    null,
-	                    _react2.default.createElement("img", { src: "src/images/kevin-profile.jpg", className: "ProfileImage DetailStyle" }),
-	                    _react2.default.createElement(
-	                        "h3",
-	                        null,
-	                        "Excelsior!"
-	                    ),
-	                    _react2.default.createElement(
-	                        "p",
-	                        null,
-	                        "My name is Kevin Annen and this website is a hub for my programming, design, and commentary about games I like to play."
-	                    ),
+	                    "The previous designer built the flow of the website using tables, which was making it difficult to read and understand when handling the update, So I ended up just deleting almost the entire page and rebuilt it up from scratch using divs with Id's and managing the flow using CSS Flexbox and CSS Grid. I then added to the design by breaking up each part of the page into its own object defined by a low opacity white box with a shadow, which made each piece of information pop up and easier to sum up visually. After I got the flow and design of the main webpage completed. I then had to go make it consistent accross all of the pages on the site. Which I was able to do super quickly by using the CSS code and Div structures of the main page, I only had to make occasional adjustments to be able to fit verious other data stuctures such as recipes and photo albums into the main format."
+	                ),
+	                _react2.default.createElement(
+	                    "a",
+	                    { href: "http://www.woodstockcountryorchard.com/", target: "_blank", className: "GameButton" },
 	                    _react2.default.createElement(
 	                        "p",
 	                        null,
-	                        "Grew up in Lake In The Hills and now live in Woodstock. I started programming back in 2010 working on mods for minecraft, and have been occasonally dabbling in programming ever since. Some of my interests include: Game Development, Animal Resque, Martial Arts, Lego, and Tabletop Games."
-	                    ),
-	                    _react2.default.createElement(
-	                        "p",
-	                        null,
-	                        "At this time this website is still under construction, so please disreguard any bugs or missing content."
+	                        "Woodstock Country Orchard Website"
 	                    )
 	                )
 	            );
@@ -31208,6 +31371,555 @@
 	}(_react.Component);
 
 	exports.default = Introduction;
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Introduction = function (_Component) {
+	    _inherits(Introduction, _Component);
+
+	    function Introduction() {
+	        _classCallCheck(this, Introduction);
+
+	        return _possibleConstructorReturn(this, (Introduction.__proto__ || Object.getPrototypeOf(Introduction)).apply(this, arguments));
+	    }
+
+	    _createClass(Introduction, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                null,
+	                _react2.default.createElement(
+	                    "div",
+	                    null,
+	                    _react2.default.createElement(
+	                        "h3",
+	                        null,
+	                        "Web Portfolio Project"
+	                    ),
+	                    _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        "When first creating this webpage I wanted to try and create a project using react, but at the time I needed to make portfolio for my programming projects as well. So to save the time I decided to combine the two."
+	                    ),
+	                    _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        "I started learning react using a course from ",
+	                        _react2.default.createElement(
+	                            "a",
+	                            { href: "https://www.udemy.com", target: "_blank" },
+	                            "Udemy"
+	                        ),
+	                        ", I followed along up untill I felt comfortable creating my own page using it. To keep it simpler for me I went ahead and installed an existing boilerplate using npm and webpack just so I could get the project going I plan on learning how to setup and customize it for myself later, but it wasn't my priority."
+	                    ),
+	                    _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        "Learning React was a bit daunting at first since there are a lot of basic syntax changes comming from Javascript. I managed to figure it out after working on it for a period of time. I tried making the webpage to be as modular as possible as each button or visual block is tied to being its own React component, and each of my posts here are made as a single component and added to a list to alow searching, and filtering via the search bar on the right. Using react to build the website makes it not have to go and reload anytime you click a button or change what is displayed on the page and make the sorting function display my posts instantainiously."
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Introduction;
+	}(_react.Component);
+
+	exports.default = Introduction;
+
+/***/ }),
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var LudumDare42 = function (_Component) {
+	    _inherits(LudumDare42, _Component);
+
+	    function LudumDare42() {
+	        _classCallCheck(this, LudumDare42);
+
+	        return _possibleConstructorReturn(this, (LudumDare42.__proto__ || Object.getPrototypeOf(LudumDare42)).apply(this, arguments));
+	    }
+
+	    _createClass(LudumDare42, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                null,
+	                _react2.default.createElement(
+	                    "div",
+	                    null,
+	                    _react2.default.createElement("img", { src: "../src/images/obelisk-defender-cover.png", className: "ProfileImage DetailStyle Left" }),
+	                    _react2.default.createElement(
+	                        "h3",
+	                        null,
+	                        "Ludum Dare 42 - Running out of space"
+	                    ),
+	                    _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        "This was a project I started for the ",
+	                        _react2.default.createElement(
+	                            "a",
+	                            { href: "http://ldjam.com", target: "_blank" },
+	                            "Ludum Dare"
+	                        ),
+	                        " 42nd Game Jam. For those whom might not know a Game Jam is an event where someone makes a Video Game from scratch in a short peiod of time. (Usualy 48 Hours) I used ",
+	                        _react2.default.createElement(
+	                            "a",
+	                            { href: "http://www.yoyogames.com/", target: "_blank" },
+	                            "GamemakerStudio2"
+	                        ),
+	                        " for the progamming and",
+	                        _react2.default.createElement(
+	                            "a",
+	                            { href: "https://inkscape.org/en/", target: "blank" },
+	                            " Inkscape"
+	                        ),
+	                        " for the art."
+	                    ),
+	                    _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        "Now having done more then 10 Game Jams I try to set particular goals for what I will be working on in order to improve my abilities and understanding of game design. For this particular jam I wanted to make a game that had some sort of progression system. So I decided on building an isometric action rougelike game. The progression I was going to add was a simple leveling system with a talent tree that added to the players abilities."
+	                    ),
+	                    _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        "This story as most of the time, is not one about success but rather about learning in failure as I did not achieve the goal that I set about above. It came down to a bunch a problems going into the project. The first was that normally I set out a completely open block of time for the Jam, that is uninterupted by daily living, but this time I was unable to get the days off from work to do the projects so I lost a large chunk of time do to having to stop in the middle of the project on Saturday and go to work for 8 hours. The second main problem is I tend to overscope my projects considering I was working alone on it."
+	                    ),
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "CaptionContainer Right" },
+	                        _react2.default.createElement("img", { src: "../src/images/obelisk.gif", className: "CaptionImage", alt: "Gif image of some gameplay" }),
+	                        "Some gameplay mechanics"
+	                    ),
+	                    _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        "Building an isometric view game is a bit more complicated then building a side scroller so it makes it more difficult to achieve in a short period of time. The final and largest problem I had was that I choose to make all the art using vector art, as its one of the two art styles I could make and I wanted to mix it up from my previous project, but it was just way to time consuming for me to use, and took way to much time from me to actually program the game."
+	                    ),
+	                    _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        "So after finishing the Jam I didn't feel as though I had a complete enough game to be worth the time submitting to Ludum Dare. And next time I hope to learn from these mistakes and try to make smaller, but more complete games in the future. Making sure that whenever I design a game. I make what I know First, then add new things to it afterwards. and save experimenting with completely new ideas and skills to projects that dont have the same time constaints."
+	                    ),
+	                    _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        "You can play around with the prototype if you want by downloading it from my Itch.io"
+	                    ),
+	                    _react2.default.createElement(
+	                        "a",
+	                        { href: "https://lekiy.itch.io/obelisk-defender", target: "_blank", className: "GameButton" },
+	                        "Play it here"
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return LudumDare42;
+	}(_react.Component);
+
+	exports.default = LudumDare42;
+
+/***/ }),
+/* 104 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Introduction = function (_Component) {
+	    _inherits(Introduction, _Component);
+
+	    function Introduction() {
+	        _classCallCheck(this, Introduction);
+
+	        return _possibleConstructorReturn(this, (Introduction.__proto__ || Object.getPrototypeOf(Introduction)).apply(this, arguments));
+	    }
+
+	    _createClass(Introduction, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                null,
+	                _react2.default.createElement(
+	                    "div",
+	                    null,
+	                    _react2.default.createElement(
+	                        "h3",
+	                        null,
+	                        "FreeCodeCamp Project - Survey Form"
+	                    ),
+	                    _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        _react2.default.createElement("img", { src: "../src/images/league-survey.png", className: "ProfileImage DetailStyle Left", alt: "" }),
+	                        "Following the programming corriculum on ",
+	                        _react2.default.createElement(
+	                            "a",
+	                            { href: "https://www.freecodecamp.org", target: "_blank" },
+	                            "FreeCodeCamp"
+	                        ),
+	                        " I went ahead and designed a survay form themed around the PC game League of Legends it was to give me more practace using CSS grid and Flexbox The survay doesn't send its data anywhere and is made just from HTML and CSS since it was a simple enough design that I didn't need to go into javascript to build it."
+	                    ),
+	                    _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        "I designed the survay to have a feel for the data it was asking about so I used lots of images from the game that coralate to the parts of the game I was asking for data about. All together it creates a nice League of Legends feeling webpage."
+	                    ),
+	                    _react2.default.createElement(
+	                        "div",
+	                        null,
+	                        _react2.default.createElement(
+	                            "a",
+	                            { href: "https://codepen.io/lekiy/full/djZbow/", target: "_blank", className: "GameButton" },
+	                            _react2.default.createElement(
+	                                "p",
+	                                null,
+	                                "The League of Legends Survey Page"
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Introduction;
+	}(_react.Component);
+
+	exports.default = Introduction;
+
+/***/ }),
+/* 105 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Shenanijam2 = function (_Component) {
+	    _inherits(Shenanijam2, _Component);
+
+	    function Shenanijam2() {
+	        _classCallCheck(this, Shenanijam2);
+
+	        return _possibleConstructorReturn(this, (Shenanijam2.__proto__ || Object.getPrototypeOf(Shenanijam2)).apply(this, arguments));
+	    }
+
+	    _createClass(Shenanijam2, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                null,
+	                _react2.default.createElement("img", { src: "../src/images/slime-game-screenshot.png", className: "ProfileImage DetailStyle Left" }),
+	                _react2.default.createElement(
+	                    "h3",
+	                    null,
+	                    "Shenanijam 2 - Slime Crafting"
+	                ),
+	                _react2.default.createElement(
+	                    "p",
+	                    null,
+	                    "This was another of my game jam projects this time for the second Shenanijam hosted by award winning game designers Butterscotch Shenanigans. This project was worked on over 48 hours and was produced using",
+	                    _react2.default.createElement(
+	                        "a",
+	                        { href: "http://www.yoyogames.com/", target: "_blank" },
+	                        "GamemakerStudio2"
+	                    ),
+	                    " for the progamming and",
+	                    _react2.default.createElement(
+	                        "a",
+	                        { href: "https://www.aseprite.org/", target: "blank" },
+	                        " Aseprite"
+	                    ),
+	                    " for the art."
+	                ),
+	                _react2.default.createElement(
+	                    "p",
+	                    null,
+	                    "For this game jam the theme that I had got was \"Slimey Justice\" so I decided to go for trying to make a crafting style game focused around having the typical roles reversed for the main characters. In most games slimes are used as a weak begining enemy for the player to face off agenst but for this game I had the player be the slimes trying to show the human characters whos boss."
+	                ),
+	                _react2.default.createElement(
+	                    "p",
+	                    null,
+	                    "This game was my first real attempt at making a crafting game, so it posed many challenges for me. I've gotten used to making games with randonly generate maps so I got that working pretty quickly so I had a nice top down island for which the player would live. It got trickier once I started to add in the main resource collection mechanics. Since I couldnt think of how to make a slime collecting stones and trees seem natural, I ended up making the main mechanic of the game about holding down the mouse button on a target, and your slime would start to send out pieces of its self in order to gather and collect the various items it would use for crafting."
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "CaptionContainer Right" },
+	                    _react2.default.createElement("img", { src: "../src/images/slime.gif", className: "CaptionImage", alt: "Gif image of some gameplay" }),
+	                    "Some gameplay mechanics"
+	                ),
+	                _react2.default.createElement(
+	                    "p",
+	                    null,
+	                    "This would create numerous problems do to the many interactions that the objects in the game would have with each other, and how I choose to handle those problems. when spawning each little piece of slime the \"slimeling\" as I called them had to figure out if it had to attack or destroy something, pickup an item, or combine with another slime, and it was vary hard for me to keep track of what it was attempting to do so I was never able to get results that felt vary good."
+	                ),
+	                _react2.default.createElement(
+	                    "p",
+	                    null,
+	                    "After a while of sorting out those mechanics, which also took most of my time for the game jam, I realized that I couldnt solve the problem of why the slime needed to gather items in the first place, since it was not using items to collect things it had no need for better tools or weapons which is the main game loop that crafting games tended to uses."
+	                ),
+	                _react2.default.createElement(
+	                    "p",
+	                    null,
+	                    "So after all the issues I fased with the over all design of the project and all the time lost to solving varios bugs. I ended up with a game thats mostly just running around collecting sticks and killing npcs. but sometimes thats all someone can get out of a game jam."
+	                ),
+	                _react2.default.createElement(
+	                    "p",
+	                    null,
+	                    "You can play around with the prototype if you want by downloading it from my Itch.io"
+	                ),
+	                _react2.default.createElement(
+	                    "a",
+	                    { href: "https://lekiy.itch.io/slimes-revenge", target: "_blank", className: "GameButton" },
+	                    "Play it here"
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Shenanijam2;
+	}(_react.Component);
+
+	exports.default = Shenanijam2;
+
+/***/ }),
+/* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Container = __webpack_require__(107);
+
+	var _Container2 = _interopRequireDefault(_Container);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ContactMe = function (_Component) {
+	    _inherits(ContactMe, _Component);
+
+	    function ContactMe() {
+	        _classCallCheck(this, ContactMe);
+
+	        return _possibleConstructorReturn(this, (ContactMe.__proto__ || Object.getPrototypeOf(ContactMe)).apply(this, arguments));
+	    }
+
+	    _createClass(ContactMe, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _Container2.default,
+	                { className: 'ContactMe' },
+	                _react2.default.createElement(
+	                    'h3',
+	                    null,
+	                    'Contact Me'
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'Wish to send me a message about something? ',
+	                    _react2.default.createElement('br', null),
+	                    'Just fill this out here and I will try my best ',
+	                    _react2.default.createElement('br', null),
+	                    'to get back to you as soon as possible ',
+	                    _react2.default.createElement('br', null)
+	                ),
+	                _react2.default.createElement(
+	                    'form',
+	                    { className: 'Center', action: 'https://formspree.io/lekiyminin@gmail.com',
+	                        method: 'POST' },
+	                    _react2.default.createElement(
+	                        'label',
+	                        null,
+	                        'First Name'
+	                    ),
+	                    _react2.default.createElement('input', { type: 'text', name: 'firstname', className: 'InputBox' }),
+	                    _react2.default.createElement(
+	                        'label',
+	                        null,
+	                        'Last Name'
+	                    ),
+	                    _react2.default.createElement('input', { type: 'text', name: 'lastname', className: 'InputBox' }),
+	                    _react2.default.createElement(
+	                        'label',
+	                        null,
+	                        'Email'
+	                    ),
+	                    _react2.default.createElement('input', { type: 'email', name: 'email', className: 'InputBox' }),
+	                    _react2.default.createElement(
+	                        'label',
+	                        null,
+	                        'Subject'
+	                    ),
+	                    _react2.default.createElement('input', { type: 'text', name: 'subject', className: 'InputBox' }),
+	                    _react2.default.createElement(
+	                        'label',
+	                        null,
+	                        'Content'
+	                    ),
+	                    _react2.default.createElement('textarea', { type: 'text', name: 'content', className: 'InputBox ContentInput', rows: '20', cols: '50' }),
+	                    _react2.default.createElement('input', { type: 'submit', className: 'SubmitButton', value: 'Send Message' })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return ContactMe;
+	}(_react.Component);
+
+	exports.default = ContactMe;
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Container = function (_Component) {
+	    _inherits(Container, _Component);
+
+	    function Container() {
+	        _classCallCheck(this, Container);
+
+	        return _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).apply(this, arguments));
+	    }
+
+	    _createClass(Container, [{
+	        key: "render",
+	        value: function render() {
+
+	            var styles = "BlockStyle " + this.props.className;
+
+	            return _react2.default.createElement(
+	                "div",
+	                { className: styles },
+	                this.props.children
+	            );
+	        }
+	    }]);
+
+	    return Container;
+	}(_react.Component);
+
+	exports.default = Container;
 
 /***/ })
 /******/ ]);
