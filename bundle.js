@@ -31258,7 +31258,7 @@
 	            return _react2.default.createElement(
 	                "div",
 	                null,
-	                _react2.default.createElement("img", { src: "../src/images/kevin-profile.jpg", className: "ProfileImage DetailStyle Left" }),
+	                _react2.default.createElement("img", { src: "src/images/kevin-profile.jpg", className: "ProfileImage DetailStyle Left" }),
 	                _react2.default.createElement(
 	                    "h3",
 	                    null,
@@ -31267,7 +31267,7 @@
 	                _react2.default.createElement(
 	                    "p",
 	                    null,
-	                    "My name is Kevin Annen and this website is a hub for my programming, design, and commentary about games I like to play."
+	                    "My name is Kevin Anneb and this website is a hub for my programming, design, and commentary about games I like to play."
 	                ),
 	                _react2.default.createElement(
 	                    "p",
@@ -31327,7 +31327,7 @@
 	            return _react2.default.createElement(
 	                "div",
 	                { className: "Flex" },
-	                _react2.default.createElement("img", { src: "../src/images/orchard-page-new.png", className: "ProfileImage DetailStyle Left", alt: "Woodstock Country Orchard Home Page" }),
+	                _react2.default.createElement("img", { src: "src/images/orchard-page-new.png", className: "ProfileImage DetailStyle Left", alt: "Woodstock Country Orchard Home Page" }),
 	                _react2.default.createElement(
 	                    "h3",
 	                    null,
@@ -31346,7 +31346,7 @@
 	                _react2.default.createElement(
 	                    "div",
 	                    { className: "CaptionContainer Right" },
-	                    _react2.default.createElement("img", { src: "../src/images/orchard-page-old.png", className: "CaptionImage", alt: "Woodstock Country Orchard Home Page Old" }),
+	                    _react2.default.createElement("img", { src: "src/images/orchard-page-old.png", className: "CaptionImage", alt: "Woodstock Country Orchard Home Page Old" }),
 	                    "This is a screenshot of the homepage before I started working on it. (The top image is afterwards)"
 	                ),
 	                _react2.default.createElement(
@@ -31492,7 +31492,7 @@
 	                _react2.default.createElement(
 	                    "div",
 	                    null,
-	                    _react2.default.createElement("img", { src: "../src/images/obelisk-defender-cover.png", className: "ProfileImage DetailStyle Left" }),
+	                    _react2.default.createElement("img", { src: "src/images/obelisk-defender-cover.png", className: "ProfileImage DetailStyle Left" }),
 	                    _react2.default.createElement(
 	                        "h3",
 	                        null,
@@ -31534,7 +31534,7 @@
 	                    _react2.default.createElement(
 	                        "div",
 	                        { className: "CaptionContainer Right" },
-	                        _react2.default.createElement("img", { src: "../src/images/obelisk.gif", className: "CaptionImage", alt: "Gif image of some gameplay" }),
+	                        _react2.default.createElement("img", { src: "src/images/obelisk.gif", className: "CaptionImage", alt: "Gif image of some gameplay" }),
 	                        "Some gameplay mechanics"
 	                    ),
 	                    _react2.default.createElement(
@@ -31617,7 +31617,7 @@
 	                    _react2.default.createElement(
 	                        "p",
 	                        null,
-	                        _react2.default.createElement("img", { src: "../src/images/league-survey.png", className: "ProfileImage DetailStyle Left", alt: "" }),
+	                        _react2.default.createElement("img", { src: "src/images/league-survey.png", className: "ProfileImage DetailStyle Left", alt: "" }),
 	                        "Following the programming corriculum on ",
 	                        _react2.default.createElement(
 	                            "a",
@@ -31693,7 +31693,7 @@
 	            return _react2.default.createElement(
 	                "div",
 	                null,
-	                _react2.default.createElement("img", { src: "../src/images/slime-game-screenshot.png", className: "ProfileImage DetailStyle Left" }),
+	                _react2.default.createElement("img", { src: "src/images/slime-game-screenshot.png", className: "ProfileImage DetailStyle Left" }),
 	                _react2.default.createElement(
 	                    "h3",
 	                    null,
@@ -31729,7 +31729,7 @@
 	                _react2.default.createElement(
 	                    "div",
 	                    { className: "CaptionContainer Right" },
-	                    _react2.default.createElement("img", { src: "../src/images/slime.gif", className: "CaptionImage", alt: "Gif image of some gameplay" }),
+	                    _react2.default.createElement("img", { src: "src/images/slime.gif", className: "CaptionImage", alt: "Gif image of some gameplay" }),
 	                    "Some gameplay mechanics"
 	                ),
 	                _react2.default.createElement(
