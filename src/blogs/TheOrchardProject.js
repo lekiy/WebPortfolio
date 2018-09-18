@@ -6,7 +6,7 @@ export default class Introduction extends Component {
     render() {
         return (
             <div className="Flex">
-                <img src="../src/images/orchard-page-new.png" className="ProfileImage DetailStyle Left" alt="Woodstock Country Orchard Home Page"/>
+                <img src="src/images/orchard-page-new.png" className="ProfileImage DetailStyle Left" alt="Woodstock Country Orchard Home Page"/>
                     <h3>The Orchard Project</h3>
                     <p>
                         This project Is my first web development project that I got to do 
@@ -23,7 +23,7 @@ export default class Introduction extends Component {
                         After that I went ahead and tried to improve the overall design of the website.
                     </p>
                     <div className="CaptionContainer Right">
-                        <img src="../src/images/orchard-page-old.png" className="CaptionImage" alt="Woodstock Country Orchard Home Page Old"/>
+                        <img src="src/images/orchard-page-old.png" className="CaptionImage" alt="Woodstock Country Orchard Home Page Old"/>
                         This is a screenshot of the homepage before I started working on it. (The top image is afterwards)
                     </div>
                     <p>

@@ -7,10 +7,10 @@ export default class Introduction extends Component {
         return (
             <div>
                 
-                <img src="../src/images/kevin-profile.jpg" className="ProfileImage DetailStyle Left" />
+                <img src="src/images/kevin-profile.jpg" className="ProfileImage DetailStyle Left" />
                 <h3>Excelsior!</h3>
                 <p>
-                    My name is Kevin Annen and this website
+                    My name is Kevin Anneb and this website
                     is a hub for my programming, design, and
                     commentary about games I like to play.
                 </p>

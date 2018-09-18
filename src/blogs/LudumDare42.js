@@ -8,7 +8,7 @@ export default class LudumDare42 extends Component {
             <div>
                 
                 <div>
-                <img src="../src/images/obelisk-defender-cover.png" className="ProfileImage DetailStyle Left" />
+                <img src="src/images/obelisk-defender-cover.png" className="ProfileImage DetailStyle Left" />
                     <h3>Ludum Dare 42 - Running out of space</h3>
                     <p>
                        This was a project I started for the <a href="http://ldjam.com" target="_blank">Ludum Dare</a> 42nd Game Jam. For those whom might not know
@@ -32,7 +32,7 @@ export default class LudumDare42 extends Component {
                         The second main problem is I tend to overscope my projects considering I was working alone on it. 
                         </p>
                         <div className="CaptionContainer Right">
-                        <img src="../src/images/obelisk.gif" className="CaptionImage" alt="Gif image of some gameplay"/>
+                        <img src="src/images/obelisk.gif" className="CaptionImage" alt="Gif image of some gameplay"/>
                             Some gameplay mechanics
                     </div>
                     <p>

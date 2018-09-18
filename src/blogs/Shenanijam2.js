@@ -6,7 +6,7 @@ export default class Shenanijam2 extends Component {
     render() {
         return (
             <div>
-                <img src="../src/images/slime-game-screenshot.png" className="ProfileImage DetailStyle Left" />
+                <img src="src/images/slime-game-screenshot.png" className="ProfileImage DetailStyle Left" />
                 <h3>Shenanijam 2 - Slime Crafting</h3>
                 <p>
                     This was another of my game jam projects this time for the second Shenanijam hosted by award winning
@@ -29,7 +29,7 @@ export default class Shenanijam2 extends Component {
                     gather and collect the various items it would use for crafting. 
                 </p>
                     <div className="CaptionContainer Right">
-                        <img src="../src/images/slime.gif" className="CaptionImage" alt="Gif image of some gameplay"/>
+                        <img src="src/images/slime.gif" className="CaptionImage" alt="Gif image of some gameplay"/>
                             Some gameplay mechanics
                     </div>
                 <p>

@@ -12,7 +12,7 @@ export default class Introduction extends Component {
                     <h3>FreeCodeCamp Project - Survey Form</h3>
                     
                     <p>
-                    <img src="../src/images/league-survey.png" className="ProfileImage DetailStyle Left" alt=""/>
+                    <img src="src/images/league-survey.png" className="ProfileImage DetailStyle Left" alt=""/>
                     
                     
                         Following the programming corriculum on <a href="https://www.freecodecamp.org" target="_blank">FreeCodeCamp</a> I went ahead 
