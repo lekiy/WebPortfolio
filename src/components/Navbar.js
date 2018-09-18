@@ -9,8 +9,8 @@ export default class Navbar extends Component {
                 <div className="Navbar-spacer"></div>
                 <div className="Navbar">
                     <div className="Navbar-Button-Group">
-                        <NavButton href="http://localhost:8080/" name="Home" />
-                        <NavButton href="https://google.com" name="Contact" />
+                        <NavButton href="" name="Home" onClick={()=>{this.props.onRouteChange("index")}} />
+                        <NavButton href="" name="Contact" onClick={()=>{this.props.onRouteChange("contactMe")}} />
                     </div>
                     <div className="Navbar-Filler">
                     </div>
