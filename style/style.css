@@ -137,11 +137,15 @@
 body{
     background-image: url('../src/images/forest-background.jpg');
     background-size: 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 h3{
     text-align: center;
 }
+
 p{
     text-align: center;
 }
@@ -298,4 +302,17 @@ form{
 
 .Right{
     float: right;
+}
+
+.AboutMe{
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin:auto;
+    margin-bottom:20px;
+}
+
+.Columns2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }

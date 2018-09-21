@@ -11,6 +11,7 @@ export default class Navbar extends Component {
                     <div className="Navbar-Button-Group">
                         <NavButton href="" name="Home" onClick={()=>{this.props.onRouteChange("index")}} />
                         <NavButton href="" name="Contact" onClick={()=>{this.props.onRouteChange("contactMe")}} />
+                        <NavButton href="" name="About" onClick={()=>{this.props.onRouteChange("aboutMe")}} />
                     </div>
                     <div className="Navbar-Filler">
                     </div>

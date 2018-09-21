@@ -11,16 +11,16 @@ export default class Introduction extends Component {
                     <p>
                         This project Is my first web development project that I got to do 
                         in service of another person. I'm even being paid for it which feels 
-                        great for my self confididence in my web development abilities.
+                        great for my self confidence in my web development abilities.
                     </p>
                     <p>
                         The project was to update a website for a local orchard to display the correct
                         information for the current picking season. My client didn't have a whole lot of
                         specifications on what they wanted me to do other then just correct the current hours,
-                        and schedule. So immedietly after I started the project, I made sure to get what they 
-                        needed for there business out for display as soon as I could. As I didn't want to cause 
-                        any customers confusion or miss anyone coming to the website for information.
-                        After that I went ahead and tried to improve the overall design of the website.
+                        and schedule. I made sure to get what they 
+                        needed for their business out for display as soon as I could. As I didn't want to cause 
+                        any customers confusion or miss anyone coming to the website for information. 
+                        As a second phase I improved the overall design of the website.
                     </p>
                     <div className="CaptionContainer Right">
                         <img src="src/images/orchard-page-old.png" className="CaptionImage" alt="Woodstock Country Orchard Home Page Old"/>
@@ -28,13 +28,13 @@ export default class Introduction extends Component {
                     </div>
                     <p>
                         The previous designer built the flow of the 
-                        website using tables, which was making it difficult to read and understand when handling the update, So I ended up just
+                        website using tables, which was making it difficult to read and understand when handling the update, I ended up just
                         deleting almost the entire page and rebuilt it up from scratch using divs with Id's and managing the flow using CSS Flexbox
                         and CSS Grid. I then added to the design by breaking up each part of the page into its own object defined by a low opacity 
                         white box with a shadow, which made each piece of information pop up and easier to sum up visually. After I got the flow and
-                        design of the main webpage completed. I then had to go make it consistent accross all of the pages on the site. Which I was
+                        design of the main webpage completed. I then made it consistent across all of the pages on the site. Which I was
                         able to do super quickly by using the CSS code and Div structures of the main page, I only had to make occasional adjustments
-                        to be able to fit verious other data stuctures such as recipes and photo albums into the main format. 
+                        to be able to fit various other data structures such as recipes and photo albums into the main format. 
                     </p>
                     <a href="http://www.woodstockcountryorchard.com/" target="_blank" className="GameButton"><p>Woodstock Country Orchard Website</p></a>
             </div>

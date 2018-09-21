@@ -15,12 +15,13 @@ export default class Introduction extends Component {
                     commentary about games I like to play.
                 </p>
                 <p>
-                    I grew up in Lake In The Hills and now live in Woodstock.
-                    I started programming back in 2010 working on mods for minecraft, and have been occasonally dabbling in programming ever since.
+                    I grew up in the greater Chicago suburbs.
+                    I started programming back in 2010 working on mods for minecraft, and have been programming as a hobby since.
                     Some of my interests include: Game Development, Animal Resque, Martial Arts, Lego, and Tabletop Games.
                 </p>
                 <p>
-                    At this time this website is still under construction, so please disreguard any bugs or missing content. 
+                    At this time this website is still under construction, and is entirely constructed in React from scratch
+                    so please disregard any bugs or missing content. 
                 </p>
             </div>
         );

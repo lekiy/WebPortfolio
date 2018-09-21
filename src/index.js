@@ -7,6 +7,7 @@ import SelectMenu from './components/SelectMenu';
 import ContentDisplay from './components/ContentDisplay';
 import BlogStore from './blogs/BlogStore';
 import ContactMe from './components/ContactMe';
+import AboutMe from './components/AboutMe';
 
 
 class App extends Component {
@@ -96,6 +97,10 @@ class App extends Component {
       case "contactMe":
         return(
           <ContactMe />
+        );
+      case "aboutMe":
+        return(
+          <AboutMe />
         );
     }
   }
