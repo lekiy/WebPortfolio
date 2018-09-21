@@ -91,6 +91,10 @@
 
 	var _ContactMe2 = _interopRequireDefault(_ContactMe);
 
+	var _AboutMe = __webpack_require__(108);
+
+	var _AboutMe2 = _interopRequireDefault(_AboutMe);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -192,6 +196,8 @@
 	          );
 	        case "contactMe":
 	          return _react2.default.createElement(_ContactMe2.default, null);
+	        case "aboutMe":
+	          return _react2.default.createElement(_AboutMe2.default, null);
 	      }
 	    }
 	  }, {
@@ -19764,6 +19770,9 @@
 	                            } }),
 	                        _react2.default.createElement(_NavButton2.default, { href: '', name: 'Contact', onClick: function onClick() {
 	                                _this2.props.onRouteChange("contactMe");
+	                            } }),
+	                        _react2.default.createElement(_NavButton2.default, { href: '', name: 'About', onClick: function onClick() {
+	                                _this2.props.onRouteChange("aboutMe");
 	                            } })
 	                    ),
 	                    _react2.default.createElement('div', { className: 'Navbar-Filler' }),
@@ -31272,12 +31281,12 @@
 	                _react2.default.createElement(
 	                    "p",
 	                    null,
-	                    "I grew up in Lake In The Hills and now live in Woodstock. I started programming back in 2010 working on mods for minecraft, and have been occasonally dabbling in programming ever since. Some of my interests include: Game Development, Animal Resque, Martial Arts, Lego, and Tabletop Games."
+	                    "I grew up in the greater Chicago suburbs. I started programming back in 2010 working on mods for minecraft, and have been programming as a hobby since. Some of my interests include: Game Development, Animal Resque, Martial Arts, Lego, and Tabletop Games."
 	                ),
 	                _react2.default.createElement(
 	                    "p",
 	                    null,
-	                    "At this time this website is still under construction, so please disreguard any bugs or missing content."
+	                    "At this time this website is still under construction, and is entirely constructed in React from scratch so please disregard any bugs or missing content."
 	                )
 	            );
 	        }
@@ -31336,12 +31345,12 @@
 	                _react2.default.createElement(
 	                    "p",
 	                    null,
-	                    "This project Is my first web development project that I got to do in service of another person. I'm even being paid for it which feels great for my self confididence in my web development abilities."
+	                    "This project Is my first web development project that I got to do in service of another person. I'm even being paid for it which feels great for my self confidence in my web development abilities."
 	                ),
 	                _react2.default.createElement(
 	                    "p",
 	                    null,
-	                    "The project was to update a website for a local orchard to display the correct information for the current picking season. My client didn't have a whole lot of specifications on what they wanted me to do other then just correct the current hours, and schedule. So immedietly after I started the project, I made sure to get what they needed for there business out for display as soon as I could. As I didn't want to cause any customers confusion or miss anyone coming to the website for information. After that I went ahead and tried to improve the overall design of the website."
+	                    "The project was to update a website for a local orchard to display the correct information for the current picking season. My client didn't have a whole lot of specifications on what they wanted me to do other then just correct the current hours, and schedule. I made sure to get what they needed for their business out for display as soon as I could. As I didn't want to cause any customers confusion or miss anyone coming to the website for information. As a second phase I improved the overall design of the website."
 	                ),
 	                _react2.default.createElement(
 	                    "div",
@@ -31352,7 +31361,7 @@
 	                _react2.default.createElement(
 	                    "p",
 	                    null,
-	                    "The previous designer built the flow of the website using tables, which was making it difficult to read and understand when handling the update, So I ended up just deleting almost the entire page and rebuilt it up from scratch using divs with Id's and managing the flow using CSS Flexbox and CSS Grid. I then added to the design by breaking up each part of the page into its own object defined by a low opacity white box with a shadow, which made each piece of information pop up and easier to sum up visually. After I got the flow and design of the main webpage completed. I then had to go make it consistent accross all of the pages on the site. Which I was able to do super quickly by using the CSS code and Div structures of the main page, I only had to make occasional adjustments to be able to fit verious other data stuctures such as recipes and photo albums into the main format."
+	                    "The previous designer built the flow of the website using tables, which was making it difficult to read and understand when handling the update, I ended up just deleting almost the entire page and rebuilt it up from scratch using divs with Id's and managing the flow using CSS Flexbox and CSS Grid. I then added to the design by breaking up each part of the page into its own object defined by a low opacity white box with a shadow, which made each piece of information pop up and easier to sum up visually. After I got the flow and design of the main webpage completed. I then made it consistent across all of the pages on the site. Which I was able to do super quickly by using the CSS code and Div structures of the main page, I only had to make occasional adjustments to be able to fit various other data structures such as recipes and photo albums into the main format."
 	                ),
 	                _react2.default.createElement(
 	                    "a",
@@ -31422,23 +31431,34 @@
 	                    _react2.default.createElement(
 	                        "p",
 	                        null,
-	                        "When first creating this webpage I wanted to try and create a project using react, but at the time I needed to make portfolio for my programming projects as well. So to save the time I decided to combine the two."
+	                        "When first creating this webpage I wanted to try and create a project using React.js, but at the time I needed to make portfolio for my programming projects as well. To save the time I decided to combine the two."
 	                    ),
 	                    _react2.default.createElement(
 	                        "p",
 	                        null,
-	                        "I started learning react using a course from ",
+	                        "Before starting on this website I used ",
+	                        _react2.default.createElement(
+	                            "a",
+	                            { href: "https://www.Freecodecamp.org", target: "_blank" },
+	                            "FreeCodeCamp"
+	                        ),
+	                        " to learn a lot of the basics about web development. It was a great resource to learn lots of Javascript, HTML, and CSS. and gave me a strong foothold which to move forward with. I started learning react using a course from ",
 	                        _react2.default.createElement(
 	                            "a",
 	                            { href: "https://www.udemy.com", target: "_blank" },
 	                            "Udemy"
 	                        ),
-	                        ", I followed along up untill I felt comfortable creating my own page using it. To keep it simpler for me I went ahead and installed an existing boilerplate using npm and webpack just so I could get the project going I plan on learning how to setup and customize it for myself later, but it wasn't my priority."
+	                        ", Following along up until I felt comfortable creating my own page using it. To keep it simpler for me I went ahead and installed an existing boilerplate using npm and webpack just to get the project going I plan on learning how to setup and customize it for myself later, but it wasn't my priority at the time."
 	                    ),
 	                    _react2.default.createElement(
 	                        "p",
 	                        null,
-	                        "Learning React was a bit daunting at first since there are a lot of basic syntax changes comming from Javascript. I managed to figure it out after working on it for a period of time. I tried making the webpage to be as modular as possible as each button or visual block is tied to being its own React component, and each of my posts here are made as a single component and added to a list to alow searching, and filtering via the search bar on the right. Using react to build the website makes it not have to go and reload anytime you click a button or change what is displayed on the page and make the sorting function display my posts instantainiously."
+	                        "Learning React was a bit daunting at first since there are a lot of basic syntax changes coming from Javascript. I managed to figure it out after working on it for a period of time. I tried making the web page to be as modular as possible as each button or visual block is tied to being its own React component, and each of my posts here are made as a single component and added to a list to allow searching, and filtering via the search bar on the right. Using react to build the website makes it not have to go and reload anytime you click a button or change what is displayed on the page and make the sorting function display my posts instantaneously."
+	                    ),
+	                    _react2.default.createElement(
+	                        "a",
+	                        { href: "https://github.com/lekiy/WebPortfolio", target: "_blank", className: "GameButton" },
+	                        "Take a peek at the code over on the github repo"
 	                    )
 	                )
 	            );
@@ -31507,13 +31527,13 @@
 	                            { href: "http://ldjam.com", target: "_blank" },
 	                            "Ludum Dare"
 	                        ),
-	                        " 42nd Game Jam. For those whom might not know a Game Jam is an event where someone makes a Video Game from scratch in a short peiod of time. (Usualy 48 Hours) I used ",
+	                        " 42nd Game Jam. For those whom might not know a Game Jam is an event where someone makes a Video Game from scratch in a short period of time. (Usually 48 Hours) I used ",
 	                        _react2.default.createElement(
 	                            "a",
 	                            { href: "http://www.yoyogames.com/", target: "_blank" },
 	                            "GamemakerStudio2"
 	                        ),
-	                        " for the progamming and",
+	                        " for the programming and",
 	                        _react2.default.createElement(
 	                            "a",
 	                            { href: "https://inkscape.org/en/", target: "blank" },
@@ -31524,12 +31544,17 @@
 	                    _react2.default.createElement(
 	                        "p",
 	                        null,
-	                        "Now having done more then 10 Game Jams I try to set particular goals for what I will be working on in order to improve my abilities and understanding of game design. For this particular jam I wanted to make a game that had some sort of progression system. So I decided on building an isometric action rougelike game. The progression I was going to add was a simple leveling system with a talent tree that added to the players abilities."
+	                        "Now having done more than 10 Game Jams I try to set particular goals for what I will be working on in order to improve my abilities and understanding of game design. For this particular jam I wanted to make a game that had some sort of progression system. I decided on building an isometric action rouge-like game. The progression I was going to add was a simple leveling system with a talent tree that added to the players abilities."
+	                    ),
+	                    _react2.default.createElement(
+	                        "h4",
+	                        { className: "Center" },
+	                        "Difficulties"
 	                    ),
 	                    _react2.default.createElement(
 	                        "p",
 	                        null,
-	                        "This story as most of the time, is not one about success but rather about learning in failure as I did not achieve the goal that I set about above. It came down to a bunch a problems going into the project. The first was that normally I set out a completely open block of time for the Jam, that is uninterupted by daily living, but this time I was unable to get the days off from work to do the projects so I lost a large chunk of time do to having to stop in the middle of the project on Saturday and go to work for 8 hours. The second main problem is I tend to overscope my projects considering I was working alone on it."
+	                        "This story as most of the time, is not one about success but rather about learning in failure as I did not achieve the goal that I set about above. It came down to a bunch a problems going into the project. The first was that normally I set out a completely open block of time for the Jam, that is uninterrupted by daily living, but this time I was limited on the time I could dedicate to the project. In Addition I've noticed I tend to overscope my projects to be to much work for a single developer."
 	                    ),
 	                    _react2.default.createElement(
 	                        "div",
@@ -31540,12 +31565,22 @@
 	                    _react2.default.createElement(
 	                        "p",
 	                        null,
-	                        "Building an isometric view game is a bit more complicated then building a side scroller so it makes it more difficult to achieve in a short period of time. The final and largest problem I had was that I choose to make all the art using vector art, as its one of the two art styles I could make and I wanted to mix it up from my previous project, but it was just way to time consuming for me to use, and took way to much time from me to actually program the game."
+	                        "Building an isometric view game is a bit more complicated than building a side scroller this makes it more difficult to achieve in a short period of time. The final and largest problem I had was that I choose to make all the art using vector art. Its one of the two art styles I could make I wanted to mix it up from my previous project. However, it was just way too time consuming for me to use, and took way to much time from me to actually program the game."
+	                    ),
+	                    _react2.default.createElement(
+	                        "h4",
+	                        { className: "Center" },
+	                        "Lessons Learned"
 	                    ),
 	                    _react2.default.createElement(
 	                        "p",
 	                        null,
-	                        "So after finishing the Jam I didn't feel as though I had a complete enough game to be worth the time submitting to Ludum Dare. And next time I hope to learn from these mistakes and try to make smaller, but more complete games in the future. Making sure that whenever I design a game. I make what I know First, then add new things to it afterwards. and save experimenting with completely new ideas and skills to projects that dont have the same time constaints."
+	                        "After finishing the Jam I didn't feel as though I had a complete enough game to be worth submitting to Ludum Dare. Next time I hope to learn from these mistakes and try to make smaller, but more complete games. Making sure that whenever I design a game, to make what I know first, then add new things to it afterwards, saving the experimenting with completely new ideas and skills to projects that don' t have the same time constraints."
+	                    ),
+	                    _react2.default.createElement(
+	                        "h4",
+	                        { className: "Center" },
+	                        "Demo"
 	                    ),
 	                    _react2.default.createElement(
 	                        "p",
@@ -31618,18 +31653,18 @@
 	                        "p",
 	                        null,
 	                        _react2.default.createElement("img", { src: "src/images/league-survey.png", className: "ProfileImage DetailStyle Left", alt: "" }),
-	                        "Following the programming corriculum on ",
+	                        "Following the programming curriculum on ",
 	                        _react2.default.createElement(
 	                            "a",
 	                            { href: "https://www.freecodecamp.org", target: "_blank" },
 	                            "FreeCodeCamp"
 	                        ),
-	                        " I went ahead and designed a survay form themed around the PC game League of Legends it was to give me more practace using CSS grid and Flexbox The survay doesn't send its data anywhere and is made just from HTML and CSS since it was a simple enough design that I didn't need to go into javascript to build it."
+	                        " I went ahead and designed a survey form themed around the PC game League of Legends. It gave me more practice using CSS grid and Flexbox The survey doesn't send its data anywhere and is made just from HTML and CSS since it was a simple enough design that I didn't need to go into javascript to build it."
 	                    ),
 	                    _react2.default.createElement(
 	                        "p",
 	                        null,
-	                        "I designed the survay to have a feel for the data it was asking about so I used lots of images from the game that coralate to the parts of the game I was asking for data about. All together it creates a nice League of Legends feeling webpage."
+	                        "I Themed the survey to have a feel for the data it was asking about. I used lots of images from the game that correlate to the parts of the game I was asking for data about. All together it creates a nice League of Legends feeling webpage."
 	                    ),
 	                    _react2.default.createElement(
 	                        "div",
@@ -31702,13 +31737,19 @@
 	                _react2.default.createElement(
 	                    "p",
 	                    null,
-	                    "This was another of my game jam projects this time for the second Shenanijam hosted by award winning game designers Butterscotch Shenanigans. This project was worked on over 48 hours and was produced using",
+	                    "This was another of my game jam projects this time for the second Shenanijam hosted by award winning game designers ",
+	                    _react2.default.createElement(
+	                        "a",
+	                        { href: "http://www.butterscotch-shenanigans.com/", target: "_blank" },
+	                        "Butterscotch Shenanigans"
+	                    ),
+	                    ". This project was worked on over 48 hours and was produced using ",
 	                    _react2.default.createElement(
 	                        "a",
 	                        { href: "http://www.yoyogames.com/", target: "_blank" },
-	                        "GamemakerStudio2"
+	                        " GamemakerStudio2 "
 	                    ),
-	                    " for the progamming and",
+	                    "for the programming and ",
 	                    _react2.default.createElement(
 	                        "a",
 	                        { href: "https://www.aseprite.org/", target: "blank" },
@@ -31719,12 +31760,12 @@
 	                _react2.default.createElement(
 	                    "p",
 	                    null,
-	                    "For this game jam the theme that I had got was \"Slimey Justice\" so I decided to go for trying to make a crafting style game focused around having the typical roles reversed for the main characters. In most games slimes are used as a weak begining enemy for the player to face off agenst but for this game I had the player be the slimes trying to show the human characters whos boss."
+	                    "For this game jam the theme that I had got was \"Slimey Justice\" I decided to go for trying to make a crafting style game focused around having the typical roles reversed for the main characters. In most games slimes are used as a weak beginning enemy for the player to face off against. However for this game I had the player be the slimes trying to show the human characters whos boss."
 	                ),
 	                _react2.default.createElement(
 	                    "p",
 	                    null,
-	                    "This game was my first real attempt at making a crafting game, so it posed many challenges for me. I've gotten used to making games with randonly generate maps so I got that working pretty quickly so I had a nice top down island for which the player would live. It got trickier once I started to add in the main resource collection mechanics. Since I couldnt think of how to make a slime collecting stones and trees seem natural, I ended up making the main mechanic of the game about holding down the mouse button on a target, and your slime would start to send out pieces of its self in order to gather and collect the various items it would use for crafting."
+	                    "This game was my first real attempt at making a crafting game. It posed many challenges for me. I've gotten used to making games with randomly generated maps in previous games I've built so I got that working pretty quickly. I had a nice top down island for which the player would live. It got trickier once I started to add in the main resource collection mechanics. Since I couldn't think of how to make a slime collecting stones and trees seem natural, I ended up making the main mechanic of the game about holding down the mouse button on a target, and your slime would start to send out pieces of itself in order to gather and collect the various items it would use for crafting."
 	                ),
 	                _react2.default.createElement(
 	                    "div",
@@ -31735,17 +31776,17 @@
 	                _react2.default.createElement(
 	                    "p",
 	                    null,
-	                    "This would create numerous problems do to the many interactions that the objects in the game would have with each other, and how I choose to handle those problems. when spawning each little piece of slime the \"slimeling\" as I called them had to figure out if it had to attack or destroy something, pickup an item, or combine with another slime, and it was vary hard for me to keep track of what it was attempting to do so I was never able to get results that felt vary good."
+	                    "This would create numerous problems do to the many interactions that the objects in the game would have with each other, and how I choose to handle those problems. When spawning each little piece of slime the \"slimeling\" as I called them had to figure out if it had to attack or destroy something, pickup an item, or combine with another slime, and it was very hard for me to keep track of what it was attempting to do so I was never able to get results that felt very good."
 	                ),
 	                _react2.default.createElement(
 	                    "p",
 	                    null,
-	                    "After a while of sorting out those mechanics, which also took most of my time for the game jam, I realized that I couldnt solve the problem of why the slime needed to gather items in the first place, since it was not using items to collect things it had no need for better tools or weapons which is the main game loop that crafting games tended to uses."
+	                    "After a while of sorting out those mechanics, which also took most of my time for the game jam. I realized that I couldn't solve the problem of why the slime needed to gather items in the first place. It was not using items to collect things it had no need for better tools or weapons which is the main game loop that crafting games tended to uses."
 	                ),
 	                _react2.default.createElement(
 	                    "p",
 	                    null,
-	                    "So after all the issues I fased with the over all design of the project and all the time lost to solving varios bugs. I ended up with a game thats mostly just running around collecting sticks and killing npcs. but sometimes thats all someone can get out of a game jam."
+	                    "After all the issues I faced with the overall design of the project and all the time lost to solving various bugs. I ended up with a game that's mostly just running around collecting sticks and killing npcs. But sometimes that's all someone can get out of a game jam."
 	                ),
 	                _react2.default.createElement(
 	                    "p",
@@ -31920,6 +31961,137 @@
 	}(_react.Component);
 
 	exports.default = Container;
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Container = __webpack_require__(107);
+
+	var _Container2 = _interopRequireDefault(_Container);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var AboutMe = function (_Component) {
+	    _inherits(AboutMe, _Component);
+
+	    function AboutMe() {
+	        _classCallCheck(this, AboutMe);
+
+	        return _possibleConstructorReturn(this, (AboutMe.__proto__ || Object.getPrototypeOf(AboutMe)).apply(this, arguments));
+	    }
+
+	    _createClass(AboutMe, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _Container2.default,
+	                { className: 'AboutMe' },
+	                _react2.default.createElement(
+	                    'h3',
+	                    null,
+	                    'About Me'
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'Looking for some more details about me? ',
+	                    _react2.default.createElement('br', null),
+	                    'Here is a list of some of the skills I have:'
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'Columns2' },
+	                    _react2.default.createElement(
+	                        'ul',
+	                        null,
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            'React.js'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            'HTML'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            'CSS'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            'Javascript'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            'Graphic Design'
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'ul',
+	                        null,
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            'Object Oriented Programming'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            'Leadership'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            'Software Design'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            'Game Design'
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            'Electronics/Computer Repair'
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'a',
+	                    { href: 'https://www.dropbox.com/s/zqw1acvwfxi9xol/Kevin%20Annen%27s%20Resume.pdf?dl=0', target: '_blank', className: 'GameButton' },
+	                    'You can also download my resum\xE9 from Here'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return AboutMe;
+	}(_react.Component);
+
+	exports.default = AboutMe;
 
 /***/ })
 /******/ ]);
