@@ -31276,7 +31276,7 @@
 	                _react2.default.createElement(
 	                    "p",
 	                    null,
-	                    "My name is Kevin Anneb and this website is a hub for my programming, design, and commentary about games I like to play."
+	                    "My name is Kevin Annen and this website is a hub for my programming, design, and commentary about games I like to play."
 	                ),
 	                _react2.default.createElement(
 	                    "p",

@@ -29,6 +29,10 @@
     text-align: center;
 }
 
+.SelectColumn{
+    margin:15px;
+}
+
 .Navbar{
     background-color: gray;
     border: 0px solid rgba(0,0,0,0);
@@ -153,13 +157,13 @@ p{
 .ContentDisplay{
     width:100%;
     flex-grow: 1;
-    margin-right:20px;
+    margin-bottom:20px;
 }
 
 .BlogColumn{
     display: flex;
     flex-direction: column;
-    margin-right:20px;
+    margin:15px;
 }
 
 .BlogSection{
@@ -274,8 +278,8 @@ form{
 }
 
 .GameButton{
-    width:400px;
-    height:30px;
+    width:70%;
+    min-height:28px;
     margin:auto;
     border-radius: 25px;
     color:white;
