@@ -32036,7 +32036,7 @@
 	                        _react2.default.createElement(
 	                            'li',
 	                            null,
-	                            'CSS'
+	                            'SCSS'
 	                        ),
 	                        _react2.default.createElement(
 	                            'li',

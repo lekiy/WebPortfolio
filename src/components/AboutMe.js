@@ -14,7 +14,7 @@ export default class AboutMe extends Component{
                     <ul>
                         <li>React.js</li>
                         <li>HTML</li>
-                        <li>CSS</li>
+                        <li>SCSS</li>
                         <li>Javascript</li>
                         <li>Graphic Design</li>
                     </ul>
