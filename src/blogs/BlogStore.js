@@ -5,6 +5,7 @@ import WebPortfolioProject from "./WebPortfolioProject";
 import LudumDare42 from "./LudumDare42";
 import SurveyFormProject from "./SurveyFormProject";
 import Shenanijam2 from "./Shenanijam2";
+import BookViewer from "./BookViewer";
 
 
 const blogs = 
@@ -12,6 +13,10 @@ const blogs =
   {title:"Introduction",
   keywords:"default introduction greeting interests",
   content:<Introduction />},
+
+  {title:"Book Viewer App",
+  keywords:"book viewer app project CSS web development HTML design flex grid 2018 october react.js react javascript codepen",
+  content:<BookViewer />},
 
   {title:"The Orchard Project",
   keywords:"the orchard project CSS web development HTML design flex box grid 2018 august september",

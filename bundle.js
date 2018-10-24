@@ -87,11 +87,11 @@
 
 	var _BlogStore2 = _interopRequireDefault(_BlogStore);
 
-	var _ContactMe = __webpack_require__(106);
+	var _ContactMe = __webpack_require__(107);
 
 	var _ContactMe2 = _interopRequireDefault(_ContactMe);
 
-	var _AboutMe = __webpack_require__(108);
+	var _AboutMe = __webpack_require__(109);
 
 	var _AboutMe2 = _interopRequireDefault(_AboutMe);
 
@@ -31210,11 +31210,17 @@
 
 	var _Shenanijam2 = _interopRequireDefault(_Shenanijam);
 
+	var _BookViewer = __webpack_require__(106);
+
+	var _BookViewer2 = _interopRequireDefault(_BookViewer);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var blogs = [{ title: "Introduction",
 	  keywords: "default introduction greeting interests",
-	  content: _react2.default.createElement(_Introduction2.default, null) }, { title: "The Orchard Project",
+	  content: _react2.default.createElement(_Introduction2.default, null) }, { title: "Book Viewer App",
+	  keywords: "book viewer app project CSS web development HTML design flex grid 2018 october react.js react javascript codepen",
+	  content: _react2.default.createElement(_BookViewer2.default, null) }, { title: "The Orchard Project",
 	  keywords: "the orchard project CSS web development HTML design flex box grid 2018 august september",
 	  content: _react2.default.createElement(_TheOrchardProject2.default, null) }, { title: "Portfolio Website Project",
 	  keywords: "portfolio website project CSS web development HTML javascript design react webpack npm",
@@ -31321,16 +31327,16 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Introduction = function (_Component) {
-	    _inherits(Introduction, _Component);
+	var TheOrchardProject = function (_Component) {
+	    _inherits(TheOrchardProject, _Component);
 
-	    function Introduction() {
-	        _classCallCheck(this, Introduction);
+	    function TheOrchardProject() {
+	        _classCallCheck(this, TheOrchardProject);
 
-	        return _possibleConstructorReturn(this, (Introduction.__proto__ || Object.getPrototypeOf(Introduction)).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (TheOrchardProject.__proto__ || Object.getPrototypeOf(TheOrchardProject)).apply(this, arguments));
 	    }
 
-	    _createClass(Introduction, [{
+	    _createClass(TheOrchardProject, [{
 	        key: "render",
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -31376,10 +31382,10 @@
 	        }
 	    }]);
 
-	    return Introduction;
+	    return TheOrchardProject;
 	}(_react.Component);
 
-	exports.default = Introduction;
+	exports.default = TheOrchardProject;
 
 /***/ }),
 /* 102 */
@@ -31811,6 +31817,96 @@
 /* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var BookViewer = function (_Component) {
+	    _inherits(BookViewer, _Component);
+
+	    function BookViewer() {
+	        _classCallCheck(this, BookViewer);
+
+	        return _possibleConstructorReturn(this, (BookViewer.__proto__ || Object.getPrototypeOf(BookViewer)).apply(this, arguments));
+	    }
+
+	    _createClass(BookViewer, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                { className: "Flex" },
+	                _react2.default.createElement("img", { src: "src/images/orchard-page-new.png", className: "ProfileImage DetailStyle Left", alt: "Woodstock Country Orchard Home Page" }),
+	                _react2.default.createElement(
+	                    "h3",
+	                    null,
+	                    "React Book Viewer"
+	                ),
+	                _react2.default.createElement("br", null),
+	                _react2.default.createElement(
+	                    "h4",
+	                    null,
+	                    "Project Discription"
+	                ),
+	                _react2.default.createElement(
+	                    "p",
+	                    null,
+	                    "For this project my friend gave me a project to build with React.js that would emulate a code interview with the company he works for. He asked me to build a page that grabs data from a RestAPI and display it as a table, the table had to be sortable by multiple data categories from the page it self."
+	                ),
+	                _react2.default.createElement(
+	                    "h4",
+	                    null,
+	                    "The Process"
+	                ),
+	                _react2.default.createElement(
+	                    "p",
+	                    null,
+	                    "Once I started on the project it took me about 3 days to finish using my free time after work. Working on the project helped me feel more like I understood how to create a project using React, since before this point I needed a lot more research and to ask more questions in order to get any sort of result. To build this project I began with making sure I could get react working over on ",
+	                    _react2.default.createElement(
+	                        "a",
+	                        { href: "https://www.codepen.io", target: "_blank" },
+	                        "Codepen.io "
+	                    ),
+	                    "then I made sure to gather and store the API data that I needed to work with. Once I had the data I started building a table that could display it. I built the table using CSS Grid but now looking back at it I would have been better to use HTML table tags since it would be handled better by different device sizes. Next I created the functionality of the page by pushing my data through a sort function before displaying it. Only creating one function for the task was able to handle all the necessary types of data to be sorted. (but I'm sure that using a more precise function would be better for larger datasets) After finalizing all the mechanics of the page I wrote some more CSS to ensure all the data is displayed nicely to the viewer."
+	                ),
+	                _react2.default.createElement(
+	                    "a",
+	                    { href: "https://codepen.io/lekiy/full/QZbyyb/", target: "_blank", className: "GameButton" },
+	                    _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        "Book Viewer App"
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return BookViewer;
+	}(_react.Component);
+
+	exports.default = BookViewer;
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -31823,7 +31919,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Container = __webpack_require__(107);
+	var _Container = __webpack_require__(108);
 
 	var _Container2 = _interopRequireDefault(_Container);
 
@@ -31911,7 +32007,7 @@
 	exports.default = ContactMe;
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -31963,7 +32059,7 @@
 	exports.default = Container;
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31978,7 +32074,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Container = __webpack_require__(107);
+	var _Container = __webpack_require__(108);
 
 	var _Container2 = _interopRequireDefault(_Container);
 

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 
-export default class Introduction extends Component {
+export default class TheOrchardProject extends Component {
 
     render() {
         return (
