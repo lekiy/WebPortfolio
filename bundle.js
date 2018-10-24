@@ -31852,7 +31852,7 @@
 	            return _react2.default.createElement(
 	                "div",
 	                { className: "Flex" },
-	                _react2.default.createElement("img", { src: "src/images/orchard-page-new.png", className: "ProfileImage DetailStyle Left", alt: "Woodstock Country Orchard Home Page" }),
+	                _react2.default.createElement("img", { src: "src/images/bookviewer.png", className: "ProfileImage DetailStyle Left", alt: "Book Viewer App Page" }),
 	                _react2.default.createElement(
 	                    "h3",
 	                    null,
