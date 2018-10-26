@@ -31862,7 +31862,7 @@
 	                _react2.default.createElement(
 	                    "h4",
 	                    null,
-	                    "Project Discription"
+	                    "Project Description"
 	                ),
 	                _react2.default.createElement(
 	                    "p",

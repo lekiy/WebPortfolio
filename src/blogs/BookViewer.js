@@ -9,7 +9,7 @@ export default class BookViewer extends Component {
                 <img src="src/images/bookviewer.png" className="ProfileImage DetailStyle Left" alt="Book Viewer App Page"/>
                     <h3>React Book Viewer</h3>
                     <br></br>
-                    <h4>Project Discription</h4>
+                    <h4>Project Description</h4>
                     <p>
                        For this project my friend gave me a project to build with React.js that would emulate a code interview with the company he works for.
                        He asked me to build a page that grabs data from a RestAPI and display it as a table, 
